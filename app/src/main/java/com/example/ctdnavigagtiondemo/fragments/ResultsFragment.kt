@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.ctdnavigagtiondemo.R
+import com.example.ctdnavigagtiondemo.models.RPS
 import kotlinx.android.synthetic.main.fragment_results.*
+import androidx.navigation.fragment.findNavController
+
 
 
 class ResultsFragment : Fragment() {
@@ -25,7 +28,11 @@ class ResultsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val userChoice: RPS = arguments?.get("user_choice") as RPS
+        textViewPlayerChoice.text = userChoice.name
+
         buttonPlayAgain.setOnClickListener {
+            findNavController().navigate(R.id.action_global_startFragment)
 
         }
     }
