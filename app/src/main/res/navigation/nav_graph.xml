@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.ctdnavigagtiondemo.startFragment"
-        android:label="fragment_start2"
+        android:name="com.example.ctdnavigagtiondemo.fragments.StartFragment"
+        android:label="Rock Paper Scissors"
         tools:layout="@layout/fragment_start" >
         <action
             android:id="@+id/action_startFragment_to_playGameFragment"
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/playGameFragment"
         android:name="com.example.ctdnavigagtiondemo.fragments.PlayGameFragment"
-        android:label="fragment_play_game"
-        tools:layout="@layout/fragment_play_game" >
+        android:label="Play"
+        tools:layout="@layout/fragment_play_game">
         <action
             android:id="@+id/action_playGameFragment_to_resultsFragment"
             app:destination="@id/resultsFragment" />
@@ -26,10 +26,22 @@
     <fragment
         android:id="@+id/resultsFragment"
         android:name="com.example.ctdnavigagtiondemo.fragments.ResultsFragment"
-        android:label="fragment_results"
-        tools:layout="@layout/fragment_results" />
+        android:label="Results"
+        tools:layout="@layout/fragment_results" >
+        <argument
+            android:name="@string/USER_CHOISE"
+            app:argType="com.example.ctdnavigagtiondemo.models.RPS" />
+        <action
+            android:id="@+id/action_resultsFragment_to_paintingFragment"
+            app:destination="@id/paintingFragment" />
+    </fragment>
     <action
         android:id="@+id/action_global_startFragment"
         app:destination="@id/startFragment"
         app:popUpTo="@+id/startFragment" />
+    <fragment
+        android:id="@+id/paintingFragment"
+        android:name="com.example.ctdnavigagtiondemo.fragments.PaintingFragment"
+        android:label="Painting"
+        tools:layout="@layout/fragment_credit" />
 </navigation>
